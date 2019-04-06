@@ -51,7 +51,7 @@ def get_db():
 	return db
 
 
-def close():
+def close(*varargs):
 	"""
 	Closes the current DB connection if any.
 	"""
