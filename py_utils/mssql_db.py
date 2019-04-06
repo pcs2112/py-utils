@@ -233,7 +233,11 @@ def execute_sp(sp_name, in_args, out_arg=None, as_dict=True):
 
 
 def get_sp_result_set(results, index=0, out_arg=None):
-	""" Utility to return a specified result set from results from a SP call. """
+	"""
+	Utility to return a specified result set from results from a SP call.
+	:return:
+	:rtype: list or bool
+	"""
 	results_set_count = len(results)
 	if results_set_count < 1:
 		return False
@@ -245,8 +249,19 @@ def get_sp_result_set(results, index=0, out_arg=None):
 
 
 def get_sp_first_result_set(results, out_arg=None):
-	""" Returns the first result set for a SP call. """
-	return get_sp_result_set(results, 0, out_arg)
+	"""
+	Returns the first result set for a SP call.
+	:return:
+	:rtype: list or bool
+	"""
+	results = get_sp_result_set(results, 0, out_arg)
+	if not results:
+		return False
+	
+	if len(results) < 1:
+		return False
+	
+	return results[0]
 
 
 def get_out_arg(results, out_arg):
