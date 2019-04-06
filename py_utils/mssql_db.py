@@ -244,6 +244,11 @@ def get_sp_result_set(results, index=0, out_arg=None):
 	return results[index]
 
 
+def get_sp_first_result_set(results, out_arg=None):
+	""" Returns the first result set for a SP call. """
+	return get_sp_result_set(results, 0, out_arg)
+
+
 def get_out_arg(results, out_arg):
 	""" Returns the out arguments from the result sets from a SP call. """
 	out_arg = out_arg.lower()
